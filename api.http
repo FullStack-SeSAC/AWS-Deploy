@@ -1,0 +1,10 @@
+@server=http://localhost:8000
+
+### 요청
+POST {{server}}/api/users
+Content-Type: : application/json; charset-UTF-8
+
+{
+    "username": "rani",
+    "email" : "rani@gmail.com"
+}
