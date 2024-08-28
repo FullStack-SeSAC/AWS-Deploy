@@ -27,7 +27,15 @@ app.get("/", (req, res) => {
 
 app.post("/api/user", async (req, res) => {
   try {
+    console.log("req.body =>", req.body);
     const { username, email } = req.body;
+
+    if (!username || !email) {
+      return res
+        .status(400)
+        .json({ message: "Username and email are required." });
+    }
+
     const user = await User.create({ username, email });
     res.json(user);
   } catch (error) {
